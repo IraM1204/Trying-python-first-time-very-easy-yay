@@ -8,19 +8,41 @@ nr_letters = int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-password = " "
+# password = " "
+#
+# for char in range(0, nr_letters):
+#     char = random.choice(letters)
+#     password += char
+#
+# for sym in range(0, nr_symbols):
+#     sym = random.choice(symbols)
+#     password += sym
+#
+# for num in range(0, nr_numbers):
+#     num = random.choice(numbers)
+#     password += num
+#
+# print(f'Your password is {password}')
 
-for char in range(0, nr_letters+1):
+password_hard = [ ]
+
+for char in range(0, nr_letters):
     char = random.choice(letters)
-    password += char
+    password_hard.append(str(char))
 
-for sym in range(0, nr_symbols+1):
+for sym in range(0, nr_symbols):
     sym = random.choice(symbols)
-    password += sym
+    password_hard.append(str(sym))
 
-for num in range(0, nr_numbers+1):
+for num in range(0, nr_numbers):
     num = random.choice(numbers)
-    password += num
+    password_hard.append(str(num))
 
-print(f'Your password is {password}')
+password_final = " "
 
+random.shuffle(password_hard)
+
+for member in range(0, len(password_hard)):
+    password_final += password_hard[member]
+
+print(password_final)
