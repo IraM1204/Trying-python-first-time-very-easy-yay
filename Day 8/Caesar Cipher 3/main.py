@@ -11,7 +11,7 @@ def caesar(text, shift, direction):
     game_over = False
     while not game_over:
         def encrypt(text, shift):
-            encrypted_message = " "
+            encrypted_message = ""
             for letter in text:
                 if letter not in alphabet:
                     encrypted_message += letter
@@ -23,16 +23,16 @@ def caesar(text, shift, direction):
             print(f'Here is the encoded result: {encrypted_message}')
 
         def decrypt(text, shift):
-            decrypted_message = " "
+            decrypted_message = ""
             for letter in text:
                 if letter not in alphabet:
                     decrypted_message += letter
                 else:
                     index_value = alphabet.index(letter)
-                    index_value_new = (index_value - shift)
+                    index_value_new = (index_value - shift) % 26
                     decrypted_letter = alphabet[index_value_new]
                     decrypted_message += decrypted_letter
-            print(f'Here is the encoded result: {decrypted_message}')
+            print(f'Here is the decrypted result: {decrypted_message}')
 
         if direction == 'encode':
             encrypt(text, shift)
